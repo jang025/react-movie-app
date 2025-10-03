@@ -7,18 +7,12 @@ meta {
 get {
   url: https://api.themoviedb.org/3/discover/movie?page=1&sort_by=primary_release_date.desc
   body: none
-  auth: apikey
+  auth: inherit
 }
 
 params:query {
   page: 1
   sort_by: primary_release_date.desc
-}
-
-auth:apikey {
-  key: api_key
-  value: abcbf79ef5716076c504cefa14f81cb8
-  placement: queryparams
 }
 
 settings {
