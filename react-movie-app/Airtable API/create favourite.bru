@@ -1,0 +1,32 @@
+meta {
+  name: create favourite
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://api.airtable.com/v0/appk4AbGA2v6hOzkZ/Favourites
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer patCZ4KbAbaafHUkZ.d01b908c2d95c6da100d3c26a28de101be508854b73930a5b89518614f74969c
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "fields": {
+      "Title": "Gundam",
+      "TMDB_ID": 27205,
+      "Poster_URL": "https://image.tmdb.org/t/p/w500/...",
+      "Release_Date": "2010-07-16",
+      "User_Rating": 9.0
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

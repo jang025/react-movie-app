@@ -1,0 +1,26 @@
+meta {
+  name: search movies
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://api.themoviedb.org/3/search/movie?query=inception&page=1
+  body: none
+  auth: apikey
+}
+
+params:query {
+  query: inception
+  page: 1
+}
+
+auth:apikey {
+  key: api_key
+  value: abcbf79ef5716076c504cefa14f81cb8
+  placement: queryparams
+}
+
+settings {
+  encodeUrl: true
+}
