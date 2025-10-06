@@ -1,16 +1,16 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 const NavBar = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/movies">Movies</Link>
+          <NavLink to="/movies">Movies</NavLink>
         </li>
         <li>
-          <Link to="/favorites">Favorites</Link>
+          <NavLink to="/favorites">Favorites</NavLink>
         </li>
       </ul>
     </nav>

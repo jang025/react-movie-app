@@ -7,11 +7,17 @@ meta {
 get {
   url: https://api.airtable.com/v0/appk4AbGA2v6hOzkZ/Favourites
   body: none
-  auth: inherit
+  auth: apikey
 }
 
 headers {
   Authorization: Bearer {{AIRTABLE_API_KEY}}
+}
+
+auth:apikey {
+  key: 
+  value: 
+  placement: header
 }
 
 settings {

@@ -1,5 +1,9 @@
 const SearchBar = () => {
-  return <div>SearchBar</div>;
+  return (
+    <div>
+      <input type="text" placeholder="Search for a movie..." />
+    </div>
+  );
 };
 
 export default SearchBar;
