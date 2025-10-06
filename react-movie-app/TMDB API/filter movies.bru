@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: https://api.themoviedb.org/3/genre/movie/list
+  url: https://api.themoviedb.org/3/genre/movie/list?api_key={{api_key}}
   body: none
   auth: inherit
+}
+
+params:query {
+  api_key: {{api_key}}
 }
 
 settings {

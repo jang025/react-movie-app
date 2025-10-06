@@ -5,12 +5,13 @@ meta {
 }
 
 get {
-  url: https://api.themoviedb.org/3/search/movie?query=inception&page=1
+  url: https://api.themoviedb.org/3/search/movie?api_key={{api_key}}&query=inception&page=1
   body: none
   auth: inherit
 }
 
 params:query {
+  api_key: {{api_key}}
   query: inception
   page: 1
 }

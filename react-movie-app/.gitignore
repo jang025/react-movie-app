@@ -25,6 +25,5 @@ dist-ssr
 *.sln
 *.sw?
 
-
-#bruno 
-collection.bru
+# Bruno environment files 
+**/environments/*.bru
