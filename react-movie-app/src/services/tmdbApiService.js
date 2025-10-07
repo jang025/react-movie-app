@@ -3,6 +3,7 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export async function getMovies(search, sortBy) {
   // if there's a search term , update the url with the search query
+  // encodeURIComponent ensures that our search term will go through even if it comprises unique characters
   const url = search
     ? `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
         search
@@ -18,6 +19,23 @@ export async function getMovies(search, sortBy) {
     const data = await response.json();
     console.log(data);
     return data.results;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+export async function getMovieDetails(id) {
+  const url = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
+  console.log(url);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data;
   } catch (error) {
     console.error(error.message);
   }

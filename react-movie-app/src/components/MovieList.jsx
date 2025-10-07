@@ -7,6 +7,7 @@ const MovieList = ({ movies }) => {
         <MovieDetail
           title={movie.title}
           key={movie.id}
+          id={movie.id}
           vote_average={movie.vote_average}
           poster_path={movie.poster_path}
           release_date={movie.release_date}
