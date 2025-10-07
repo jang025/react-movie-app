@@ -1,10 +1,10 @@
-import MovieDetail from "./MovieDetail";
+import MovieCard from "./MovieCard";
 
 const MovieList = ({ movies }) => {
   return (
     <ul>
       {movies.map((movie) => (
-        <MovieDetail
+        <MovieCard
           title={movie.title}
           key={movie.id}
           id={movie.id}

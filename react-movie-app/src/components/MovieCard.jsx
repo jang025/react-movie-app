@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-const MovieDetail = ({
+const MovieCard = ({
   id,
   poster_path,
   title,
@@ -9,10 +9,7 @@ const MovieDetail = ({
   release_date,
 }) => {
   return (
-    <Link
-      to={`/movies/${id}`}
-      style={{ textDecoration: "none", color: "inherit" }}
-    >
+    <Link to={`/movies/${id}`}>
       <div>
         <img
           src={
@@ -36,4 +33,4 @@ const MovieDetail = ({
   );
 };
 
-export default MovieDetail;
+export default MovieCard;

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MovieDetail from "../components/MovieDetail";
 import { getMovieDetails } from "../services/tmdbApiService";
 import { useParams } from "react-router";
 
