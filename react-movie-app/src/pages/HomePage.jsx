@@ -4,18 +4,19 @@ import MovieList from "../components/MovieList";
 import SearchBar from "../components/SearchBar";
 import { getMovies } from "../services/tmdbApiService";
 
-const HomePage = () => {
+const HomePage = ({ sortBy }) => {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
   // use effect runs when search changes
   useEffect(() => {
     async function fetchMovies() {
-      const fetchedMovies = await getMovies(search);
+      //! new state
+      const fetchedMovies = await getMovies(search, sortBy);
       setMovies(fetchedMovies);
     }
 
     fetchMovies();
-  }, [search]);
+  }, [search, sortBy]);
   return (
     <main>
       <header>

@@ -1,7 +1,11 @@
 import MovieDetail from "../components/MovieDetail";
 
 const MovieDetailsPage = () => {
-  return <MovieDetail />;
+  return (
+    <div>
+      <MovieDetail />
+    </div>
+  );
 };
 
 export default MovieDetailsPage;

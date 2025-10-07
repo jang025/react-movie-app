@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FilterDropDown from "../components/FilterDropDown";
 import MovieList from "../components/MovieList";
 import SearchBar from "../components/SearchBar";
+import { getMovies } from "../services/tmdbApiService";
 
-const MoviesPage = () => {
+const MoviesPage = ({ sortBy }) => {
   const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+  // use effect runs when search changes
+  useEffect(() => {
+    async function fetchMovies() {
+      //! new state
+      const fetchedMovies = await getMovies(search, sortBy);
+      setMovies(fetchedMovies);
+    }
+
+    fetchMovies();
+  }, [search, sortBy]);
   return (
     <main>
       <header>
@@ -13,7 +25,7 @@ const MoviesPage = () => {
         <FilterDropDown />
       </header>
       <section>
-        <MovieList search={search} />
+        <MovieList movies={movies} />
       </section>
     </main>
   );

@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: https://api.themoviedb.org/3/discover/movie?api_key={{api_key}}&page=1&sort_by=primary_release_date.desc
+  url: https://api.themoviedb.org/3/discover/movie?api_key={{api_key}}&page=1&sort_by=vote_count.desc
   body: none
   auth: inherit
 }
@@ -13,7 +13,7 @@ get {
 params:query {
   api_key: {{api_key}}
   page: 1
-  sort_by: primary_release_date.desc
+  sort_by: vote_count.desc
 }
 
 settings {

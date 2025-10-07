@@ -12,8 +12,11 @@ const App = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/" element={<HomePage sortBy="vote_count.desc" />} />
+        <Route
+          path="/movies"
+          element={<MoviesPage sortBy="popularity.desc" />}
+        />
         <Route path="/movies/:id" element={<MovieDetailsPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="*" element={<ErrorsPage />} />

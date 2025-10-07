@@ -2,11 +2,18 @@ import MovieDetail from "./MovieDetail";
 
 const MovieList = ({ movies }) => {
   return (
-    <section>
+    <ul>
       {movies.map((movie) => (
-        <MovieDetail title={movie.title} key={movie.id} />
+        <MovieDetail
+          title={movie.title}
+          key={movie.id}
+          vote_average={movie.vote_average}
+          poster_path={movie.poster_path}
+          release_date={movie.release_date}
+          original_language={movie.original_language}
+        />
       ))}
-    </section>
+    </ul>
   );
 };
 
