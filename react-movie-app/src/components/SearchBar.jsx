@@ -1,7 +1,18 @@
-const SearchBar = () => {
+const SearchBar = ({ search, setSearch }) => {
+  function handleSearch(event) {
+    //! new state
+    const newSearch = setSearch(event.target.value);
+    return newSearch;
+  }
   return (
     <div>
-      <input type="text" placeholder="Search for a movie..." />
+      <img src="search.svg" alt="search" width={50} height={50} />
+      <input
+        type="text"
+        placeholder="Search for a movie..."
+        value={search}
+        onChange={handleSearch}
+      />
     </div>
   );
 };

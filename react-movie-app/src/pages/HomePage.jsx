@@ -1,23 +1,21 @@
+import { useState } from "react";
 import FilterDropDown from "../components/FilterDropDown";
 import MovieList from "../components/MovieList";
 import SearchBar from "../components/SearchBar";
 
 const HomePage = () => {
+  const [search, setSearch] = useState("");
   return (
     <main>
-      <section>
+      <header>
         <h1>Welcome to the React Movie Application</h1>
-        <p>Browse popular movies and find your next watch!</p>
+        <h2>Browse popular movies and find your next watch!</h2>
+        <SearchBar search={search} setSearch={setSearch} />
+        <FilterDropDown />
+      </header>
+      <section>
+        <MovieList search={search} />
       </section>
-
-      {/* Search Bar */}
-      <SearchBar />
-
-      {/* Filter Dropdown */}
-      <FilterDropDown />
-
-      {/* Movie List  */}
-      <MovieList />
     </main>
   );
 };

@@ -10,7 +10,6 @@ import ErrorsPage from "./pages/ErrorsPage";
 const App = () => {
   return (
     <>
-      <h1></h1>
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -39,7 +39,7 @@ const MovieList = () => {
     // </div>
     <section>
       {movies.map((movie) => (
-        <MovieDetail title={movie.title} />
+        <MovieDetail title={movie.title} key={movie.id} />
       ))}
     </section>
   );
