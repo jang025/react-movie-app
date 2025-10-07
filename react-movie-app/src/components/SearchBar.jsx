@@ -1,8 +1,8 @@
 const SearchBar = ({ search, setSearch }) => {
   function handleSearch(event) {
     //! new state
-    const newSearch = setSearch(event.target.value);
-    return newSearch;
+    const newSearch = event.target.value;
+    setSearch(newSearch);
   }
   return (
     <div>
