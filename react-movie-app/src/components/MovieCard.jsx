@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { createFavourite } from "../services/airtableApiService";
 
 const MovieCard = ({
+  movie,
   id,
   poster_path,
   title,
@@ -12,14 +13,7 @@ const MovieCard = ({
   const handleAddFavourite = async function (event) {
     // prevent page reloading
     event.preventDefault();
-    await createFavourite({
-      id,
-      poster_path,
-      title,
-      vote_average,
-      original_language,
-      release_date,
-    });
+    await createFavourite(movie);
     alert(`${title} added to favourites`);
   };
   return (

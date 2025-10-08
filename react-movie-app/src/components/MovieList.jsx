@@ -5,6 +5,7 @@ const MovieList = ({ movies }) => {
     <ul>
       {movies.map((movie) => (
         <MovieCard
+          movie={movie}
           title={movie.title}
           key={movie.id}
           id={movie.id}
