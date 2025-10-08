@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { createFavourite } from "../services/airtableApiService";
 
 const MovieCard = ({
   id,
@@ -8,6 +9,19 @@ const MovieCard = ({
   original_language,
   release_date,
 }) => {
+  const handleAddFavourite = async function (event) {
+    // prevent page reloading
+    event.preventDefault();
+    await createFavourite({
+      id,
+      poster_path,
+      title,
+      vote_average,
+      original_language,
+      release_date,
+    });
+    alert(`${title} added to favourites`);
+  };
   return (
     <Link to={`/movies/${id}`}>
       <div>
@@ -27,6 +41,7 @@ const MovieCard = ({
             <p>{original_language ? original_language.toUpperCase() : "NA"}</p>
             <p>{release_date ? release_date.split("-")[0] : "NA"}</p>
           </div>
+          <button onClick={handleAddFavourite}>❤️ Add to Favourites</button>
         </div>
       </div>
     </Link>
