@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
         style={{ width: 50 }}
       />
       <p>{movie.overview}</p>
-      <p>Release Date: {movie.release_date}</p>
+      <p>Release Date: {movie.release_date.split("-")[0]}</p>
       <p>Rating: {movie.vote_average}</p>
       <p>Language: {movie.original_language.toUpperCase()}</p>
     </main>
