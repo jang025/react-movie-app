@@ -30,8 +30,7 @@ const MovieCard = ({
         <div>
           <h3>{title}</h3>
           <div>
-            <img src="star.svg" alt="star" style={{ width: 50 }} />
-            <p>{vote_average ? vote_average.toFixed(1) : "NA"}</p>
+            <p>⭐ {vote_average ? vote_average.toFixed(1) : "NA"}</p>
             <p>{original_language ? original_language.toUpperCase() : "NA"}</p>
             <p>{release_date ? release_date.split("-")[0] : "NA"}</p>
           </div>

@@ -8,7 +8,7 @@ const SearchBar = ({ search, setSearch }) => {
     <div>
       <img src="search.svg" alt="search" width={50} height={50} />
       <input
-        type="text"
+        type="search"
         placeholder="Search for a movie..."
         value={search}
         onChange={handleSearch}
