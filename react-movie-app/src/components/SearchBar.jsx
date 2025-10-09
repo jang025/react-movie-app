@@ -1,3 +1,4 @@
+import styles from "./SearchBar.module.css";
 const SearchBar = ({ search, setSearch }) => {
   function handleSearch(event) {
     //! new state
@@ -5,13 +6,14 @@ const SearchBar = ({ search, setSearch }) => {
     setSearch(newSearch);
   }
   return (
-    <div>
-      <img src="search.svg" alt="search" width={50} height={50} />
+    <div className={styles.container}>
+      <img src="search.svg" alt="search" className={styles.icon} />
       <input
         type="search"
         placeholder="Search for a movie..."
         value={search}
         onChange={handleSearch}
+        className={styles.input}
       />
     </div>
   );

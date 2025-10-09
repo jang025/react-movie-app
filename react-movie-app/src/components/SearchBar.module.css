@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem auto;
+  padding: 0.5rem 1rem;
+  max-width: 500px;
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.input {
+  flex: 1;
+  border: 2px oklch(70.4% 0.04 256.788) solid;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  background-color: oklch(96.8% 0.007 247.896);
+  color: oklch(25% 0.04 250);
+  padding: 0.5rem 0.25rem;
+}
+
+.input::placeholder {
+  color: oklch(60% 0.05 250);
+}

@@ -7,7 +7,6 @@ import styles from "./FavouriteList.module.css";
 const FavouriteList = () => {
   const [favourites, setFavourites] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [loadingId, setLoadingId] = useState(null);
 
   // run once when the page first loads
   useEffect(() => {
@@ -25,11 +24,12 @@ const FavouriteList = () => {
   }, []);
 
   const handleDelete = async (recordId) => {
-    setLoadingId(recordId);
-    const result = await deleteFavourite(recordId);
-    console.log(result);
-    setFavourites((prev) => prev.filter((f) => f.id !== recordId));
-    setLoadingId(null);
+    //! delete the movie with the recordId
+    await deleteFavourite(recordId);
+    //! update with new state
+    setFavourites((updatedMovies) =>
+      updatedMovies.filter((fav) => fav.id !== recordId)
+    );
   };
 
   if (loading) return <Loader />;
@@ -58,7 +58,7 @@ const FavouriteList = () => {
                 type="button"
                 className={styles.button}
               >
-                {loadingId === favourite.id ? <Loader /> : "Remove Favorite"}
+                Remove Favorite 🩵
               </button>
             </div>
           </li>

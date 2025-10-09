@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  background-color: oklch(96% 0.02 250);
+  border-bottom: 1px solid oklch(85% 0.03 250);
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  font-size: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  color: oklch(27.4% 0.006 286.033);
+  font-weight: 500;
+}
+
+.link:hover {
+  color: oklch(78.9% 0.154 211.53);
+}
+
+.active {
+  color: oklch(60% 0.15 250);
+  font-weight: 700;
+  border-bottom: 2px solid oklch(60% 0.15 250);
+  padding-bottom: 0.25rem;
+}
