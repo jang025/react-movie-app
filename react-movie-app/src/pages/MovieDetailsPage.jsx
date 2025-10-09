@@ -3,6 +3,7 @@ import { getMovieDetails } from "../services/tmdbApiService";
 import { useParams } from "react-router";
 import dayjs from "dayjs";
 import Loader from "../components/Loader";
+import styles from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
@@ -24,19 +25,24 @@ const MovieDetailsPage = () => {
 
   if (loading || !movie) return <Loader />;
   return (
-    <main>
-      <h1>{movie.title}</h1>
+    <main className={styles.container}>
+      <h1 className={styles.title}>{movie.title}</h1>
       <img
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         alt={movie.title}
-        style={{ width: 50 }}
+        className={styles.poster}
       />
-      <h2>Overview: {movie.overview}</h2>
-      <p>Genre: {movie.genres[0].name}</p>
-      <p>Tagline: {movie.tagline}</p>
-      <p>Release Date: {dayjs(movie.release_date).format("MMMM D, YYYY")}</p>
-      <p>Rating: {movie.vote_average}</p>
-      <p>Language: {movie.original_language.toUpperCase()}</p>
+      <div className={styles.details}>
+        <h2 className={styles.overview}>Overview: {movie.overview}</h2>
+        <div className={styles.tag}>
+          <p>Genre: {movie.genres[0].name}</p>
+          <p>
+            Release Date: {dayjs(movie.release_date).format("MMMM D, YYYY")}
+          </p>
+          <p>Rating: {movie.vote_average}</p>
+          <p>Language: {movie.original_language.toUpperCase()}</p>
+        </div>
+      </div>
     </main>
   );
 };
