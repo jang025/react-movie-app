@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import { deleteFavourite, getFavourites } from "../services/airtableApiService";
 import dayjs from "dayjs";
+import Loader from "./Loader";
 
 const FavouriteList = () => {
   const [favourites, setFavourites] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // run once when the page first loads
   useEffect(() => {
     async function fetchFavourites() {
+      setLoading(true);
+
+      // simulate slow API
+      // await new Promise((resolve) => setTimeout(resolve, 2000));
+      // in real life , with multiple users and multiple api calls , loader would appear
       const result = await getFavourites();
       setFavourites(result.records);
+      setLoading(false);
     }
     fetchFavourites();
   }, []);
@@ -19,6 +27,8 @@ const FavouriteList = () => {
     console.log(result);
     setFavourites((prev) => prev.filter((f) => f.id !== recordId));
   };
+
+  if (loading) return <Loader />;
 
   return (
     <main>
