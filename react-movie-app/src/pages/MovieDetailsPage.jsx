@@ -25,17 +25,18 @@ const MovieDetailsPage = () => {
           throw new Error("Movie not found");
         }
         setMovie(data);
-        setLoading(false);
       } catch (error) {
         console.error(error.message);
         setError("Failed to load movie details");
+      } finally {
+        setLoading(false);
       }
     }
     fetchDetails();
   }, [id]);
 
-  if (loading || !movie) return <Loader />;
-  if (error) return <p>{error}</p>;
+  if (loading) return <Loader />;
+  if (error || !movie) return <p>{error}</p>;
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>{movie.title}</h1>
