@@ -37,9 +37,9 @@ const MovieCard = ({
           alt={title}
           className={styles.poster}
         />
-        <div>
-          <h3>{title}</h3>
-          <div>
+        <div className={styles.content}>
+          <h3 className={styles.title}>{title}</h3>
+          <div className={styles.detail}>
             <p>⭐ {vote_average ? vote_average.toFixed(1) : "NA"}</p>
             <p>{original_language ? original_language.toUpperCase() : "NA"}</p>
             <p>{release_date ? release_date.split("-")[0] : "NA"}</p>
@@ -48,12 +48,13 @@ const MovieCard = ({
             onClick={handleAddFavourite}
             disabled={isFavourite}
             type="button"
+            className={styles.button}
           >
             {isFavourite
-              ? "❤️ Added"
+              ? "🩵 Added"
               : loading
               ? "Adding .........."
-              : "❤️ Add to Favourites"}
+              : "🩵 Add to Favourites"}
           </button>
         </div>
       </Link>
