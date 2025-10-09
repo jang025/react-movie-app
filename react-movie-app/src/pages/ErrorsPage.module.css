@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  height: 100vh;
+}
+
+.status {
+  font-size: 5rem;
+  font-weight: 700;
+  color: oklch(25% 0.04 250);
+}
+
+.message {
+  font-size: 3rem;
+}

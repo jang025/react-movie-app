@@ -30,10 +30,15 @@ const MoviesPage = ({ sortBy }) => {
   }, [debouncedSearch, sortBy]);
   return (
     <main>
-      <header>
+      <header
+        style={{
+          textAlign: "center",
+          marginTop: "1rem",
+        }}
+      >
         <h1>Movies</h1>
-        <SearchBar search={search} setSearch={setSearch} />
       </header>
+      <SearchBar search={search} setSearch={setSearch} />
       <section>{loading ? <Loader /> : <MovieList movies={movies} />}</section>
     </main>
   );

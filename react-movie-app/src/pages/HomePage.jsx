@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import { getMovies } from "../services/tmdbApiService";
 import { useDebounce } from "../hooks/useDebounce";
 import Loader from "../components/Loader";
+import styles from "./HomePage.module.css";
 
 const HomePage = ({ sortBy }) => {
   const [search, setSearch] = useState("");
@@ -31,11 +32,15 @@ const HomePage = ({ sortBy }) => {
   }, [debouncedSearch, sortBy]);
   return (
     <main>
-      <header>
-        <h1>Welcome to the React Movie Application</h1>
-        <h2>Browse popular movies and find your next watch!</h2>
-        <SearchBar search={search} setSearch={setSearch} />
+      <header className={styles.header}>
+        <h1 className={styles.heading}>
+          Welcome to the React Movie Application
+        </h1>
+        <h2 className={styles.subheading}>
+          Browse popular movies and find your next watch!
+        </h2>
       </header>
+      <SearchBar search={search} setSearch={setSearch} />
       <section>{loading ? <Loader /> : <MovieList movies={movies} />}</section>
     </main>
   );
