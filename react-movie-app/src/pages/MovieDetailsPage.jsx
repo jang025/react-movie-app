@@ -9,21 +9,33 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const [error, setError] = useState(null);
   useEffect(() => {
     async function fetchDetails() {
-      setLoading(true);
-      // simulate slow API
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-      // in real life , with multiple users and multiple api calls , loader would appear
-      //! new state
-      const data = await getMovieDetails(id);
-      setMovie(data);
-      setLoading(false);
+      try {
+        setLoading(true);
+        setError(null);
+        // simulate slow API
+        // await new Promise((resolve) => setTimeout(resolve, 2000));
+        // in real life , with multiple users and multiple api calls , loader would appear
+        //! new state
+        const data = await getMovieDetails(id);
+        // if invalid movie
+        if (!data) {
+          throw new Error("Movie not found");
+        }
+        setMovie(data);
+        setLoading(false);
+      } catch (error) {
+        console.error(error.message);
+        setError("Failed to load movie details");
+      }
     }
     fetchDetails();
   }, [id]);
 
   if (loading || !movie) return <Loader />;
+  if (error) return <p>{error}</p>;
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>{movie.title}</h1>
