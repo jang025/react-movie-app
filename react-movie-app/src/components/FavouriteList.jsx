@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { deleteFavourite, getFavourites } from "../services/airtableApiService";
 import dayjs from "dayjs";
 import Loader from "./Loader";
+import styles from "./FavouriteList.module.css";
 
 const FavouriteList = () => {
   const [favourites, setFavourites] = useState([]);
@@ -35,25 +36,31 @@ const FavouriteList = () => {
 
   return (
     <main>
-      <h1>My Favourites</h1>
-      <h2>This page will show movies you've added to your favourites list.</h2>
-      <ul>
+      <h1 className={styles.heading}>My Favourites</h1>
+
+      <ul className={styles.list}>
         {favourites.map((favourite) => (
           <li key={favourite.id}>
             <img
               src={favourite.fields.Poster_URL}
               alt={favourite.fields.Title}
-              width="100"
+              className={styles.poster}
             />
-            <h3>{favourite.fields.Title}</h3>
-            <p>⭐ {favourite.fields.User_Rating}</p>
-            <p>
-              Released:{" "}
-              {dayjs(favourite.fields.Release_Date).format("MMM D, YYYY")}
-            </p>
-            <button onClick={() => handleDelete(favourite.id)} type="button">
-              {loadingId === favourite.id ? <Loader /> : "Remove Favorite"}
-            </button>
+            <div className={styles.content}>
+              <h2 className={styles.title}>{favourite.fields.Title}</h2>
+              <p>⭐ {favourite.fields.User_Rating}</p>
+              <p>
+                Released:{" "}
+                {dayjs(favourite.fields.Release_Date).format("MMM D, YYYY")}
+              </p>
+              <button
+                onClick={() => handleDelete(favourite.id)}
+                type="button"
+                className={styles.button}
+              >
+                {loadingId === favourite.id ? <Loader /> : "Remove Favorite"}
+              </button>
+            </div>
           </li>
         ))}
       </ul>
