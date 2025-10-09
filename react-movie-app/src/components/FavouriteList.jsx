@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { deleteFavourite, getFavourites } from "../services/airtableApiService";
+import dayjs from "dayjs";
 
 const FavouriteList = () => {
   const [favourites, setFavourites] = useState([]);
@@ -33,6 +34,10 @@ const FavouriteList = () => {
             />
             <h3>{favourite.fields.Title}</h3>
             <p>⭐ {favourite.fields.User_Rating}</p>
+            <p>
+              Released:{" "}
+              {dayjs(favourite.fields.Release_Date).format("MMM D, YYYY")}
+            </p>
             <button onClick={() => handleDelete(favourite.id)}>
               Remove Favorite
             </button>

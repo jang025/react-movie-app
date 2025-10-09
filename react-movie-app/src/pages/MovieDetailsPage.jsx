@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "../services/tmdbApiService";
 import { useParams } from "react-router";
+import dayjs from "dayjs";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
@@ -24,7 +25,7 @@ const MovieDetailsPage = () => {
         style={{ width: 50 }}
       />
       <p>{movie.overview}</p>
-      <p>Release Date: {movie.release_date.split("-")[0]}</p>
+      <p>Release Date: {dayjs(movie.release_date).format("MMMM D, YYYY")}</p>
       <p>Rating: {movie.vote_average}</p>
       <p>Language: {movie.original_language.toUpperCase()}</p>
     </main>
