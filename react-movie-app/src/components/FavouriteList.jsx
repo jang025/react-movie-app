@@ -6,6 +6,7 @@ import Loader from "./Loader";
 const FavouriteList = () => {
   const [favourites, setFavourites] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingId, setLoadingId] = useState(null);
 
   // run once when the page first loads
   useEffect(() => {
@@ -23,17 +24,19 @@ const FavouriteList = () => {
   }, []);
 
   const handleDelete = async (recordId) => {
+    setLoadingId(recordId);
     const result = await deleteFavourite(recordId);
     console.log(result);
     setFavourites((prev) => prev.filter((f) => f.id !== recordId));
+    setLoadingId(null);
   };
 
   if (loading) return <Loader />;
 
   return (
     <main>
-      <h2>My Favourites</h2>
-      <p>This page will show movies you've added to your favourites list.</p>
+      <h1>My Favourites</h1>
+      <h2>This page will show movies you've added to your favourites list.</h2>
       <ul>
         {favourites.map((favourite) => (
           <li key={favourite.id}>
@@ -48,8 +51,8 @@ const FavouriteList = () => {
               Released:{" "}
               {dayjs(favourite.fields.Release_Date).format("MMM D, YYYY")}
             </p>
-            <button onClick={() => handleDelete(favourite.id)}>
-              Remove Favorite
+            <button onClick={() => handleDelete(favourite.id)} type="button">
+              {loadingId === favourite.id ? <Loader /> : "Remove Favorite"}
             </button>
           </li>
         ))}

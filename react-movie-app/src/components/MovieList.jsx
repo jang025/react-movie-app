@@ -1,8 +1,9 @@
 import MovieCard from "./MovieCard";
+import styles from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {movies.map((movie) => (
         <MovieCard
           movie={movie}

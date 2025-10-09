@@ -1,8 +1,8 @@
 const ErrorsPage = () => {
   return (
     <main>
-      <h2>404 - Page Not Found</h2>
-      <p>The page you're looking for doesn't exist.</p>
+      <h1>404 - Page Not Found</h1>
+      <h2>The page you're looking for doesn't exist.</h2>
     </main>
   );
 };

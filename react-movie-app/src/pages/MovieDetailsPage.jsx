@@ -31,7 +31,9 @@ const MovieDetailsPage = () => {
         alt={movie.title}
         style={{ width: 50 }}
       />
-      <p>{movie.overview}</p>
+      <h2>Overview: {movie.overview}</h2>
+      <p>Genre: {movie.genres[0].name}</p>
+      <p>Tagline: {movie.tagline}</p>
       <p>Release Date: {dayjs(movie.release_date).format("MMMM D, YYYY")}</p>
       <p>Rating: {movie.vote_average}</p>
       <p>Language: {movie.original_language.toUpperCase()}</p>
